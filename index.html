@@ -1,0 +1,151 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SmartMart | General Store</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="topbar">
+    🎉 Welcome to SmartMart — Your Everyday Shopping Partner!
+</div>
+
+<header class="navbar">
+    <a href="index.html" class="logo">Smart<span>Mart.</span></a>
+
+    <nav id="navLinks">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#products">Products</a>
+        <a href="#contact">Contact</a>
+        <a href="admin.html">Admin</a>
+    </nav>
+
+    <div class="nav-actions">
+        <button onclick="toggleTheme()" class="icon-btn">🌙</button>
+        <button onclick="toggleCart()" class="cart-btn">
+            🛒 Cart <span id="cartCount">0</span>
+        </button>
+        <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <span class="tag">YOUR TRUSTED GENERAL STORE</span>
+        <h1>Everything You Need,<br><span>All in One Place.</span></h1>
+        <p>Fresh groceries, beverages, snacks, household products
+        and everyday essentials at affordable prices.</p>
+        <a href="#products" class="main-btn">Shop Now →</a>
+    </div>
+    <div class="hero-circle">
+        <img src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=700"
+             alt="Fresh groceries">
+    </div>
+</section>
+
+<section class="features">
+    <div class="feature">🚚 <h3>Fast Delivery</h3><p>Quick doorstep delivery</p></div>
+    <div class="feature">🥬 <h3>Fresh Products</h3><p>Quality products</p></div>
+    <div class="feature">💰 <h3>Best Prices</h3><p>Affordable shopping</p></div>
+    <div class="feature">⭐ <h3>Best Service</h3><p>Customer satisfaction</p></div>
+</section>
+
+<section class="section" id="categories">
+    <div class="heading">
+        <span>OUR CATEGORIES</span>
+        <h2>Shop By Category</h2>
+    </div>
+    <div class="category-grid" id="categoryGrid"></div>
+</section>
+
+<section class="section" id="products">
+    <div class="heading">
+        <span>OUR STORE</span>
+        <h2>Explore Our Products</h2>
+    </div>
+
+    <div class="toolbar">
+        <input type="search" id="search" placeholder="🔍 Search products...">
+        <select id="sort">
+            <option value="default">Default Sorting</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+            <option value="name">Name: A to Z</option>
+        </select>
+    </div>
+
+    <div class="product-grid" id="productGrid"></div>
+</section>
+
+<section class="offer">
+    <div>
+        <span>SPECIAL OFFER</span>
+        <h2>Save More On Your Daily Shopping!</h2>
+        <p>Find amazing deals on everyday essentials.</p>
+    </div>
+    <a href="#products" class="main-btn">Explore Offers</a>
+</section>
+
+<section class="section contact" id="contact">
+    <div class="heading">
+        <span>GET IN TOUCH</span>
+        <h2>Contact SmartMart</h2>
+    </div>
+    <p>📍 Barikot, Swat, Pakistan</p>
+    <p>📞 0300-1234567</p>
+    <p>✉ smartmart@example.com</p>
+</section>
+
+<footer>
+    <h2>Smart<span>Mart.</span></h2>
+    <p>Your trusted general store for everyday essentials.</p>
+    <p>© 2026 SmartMart. All Rights Reserved.</p>
+</footer>
+
+<!-- Cart -->
+<div class="overlay" id="overlay" onclick="toggleCart()"></div>
+
+<aside class="cart-panel" id="cartPanel">
+    <div class="cart-heading">
+        <h2>Shopping Cart</h2>
+        <button onclick="toggleCart()">✕</button>
+    </div>
+
+    <div id="cartItems" class="cart-items"></div>
+
+    <div class="cart-total">
+        <h3>Subtotal: Rs. <span id="subtotal">0</span></h3>
+        <p>Delivery: Rs. <span id="delivery">150</span></p>
+        <h2>Total: Rs. <span id="total">0</span></h2>
+        <button class="main-btn full" onclick="checkout()">Checkout</button>
+    </div>
+</aside>
+
+<!-- Checkout -->
+<div class="modal" id="checkoutModal">
+    <form class="modal-content" id="checkoutForm">
+        <div class="cart-heading">
+            <h2>Place Your Order</h2>
+            <button type="button" onclick="closeCheckout()">✕</button>
+        </div>
+        <input id="customerName" placeholder="Full Name" required>
+        <input id="customerPhone" type="tel" placeholder="Phone Number" required>
+        <textarea id="customerAddress" placeholder="Delivery Address" required></textarea>
+        <select id="paymentMethod" required>
+            <option value="">Payment Method</option>
+            <option>Cash on Delivery</option>
+            <option>Pay at Store</option>
+        </select>
+        <button class="main-btn full" type="submit">Confirm Order</button>
+    </form>
+</div>
+
+<div id="toast" class="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
